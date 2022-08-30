@@ -3,8 +3,14 @@ all: run
 run: build
 	./lox
 
-build: main.cpp *.h
-	g++ -o lox main.cpp
+file: build
+	./lox input
+
+mem-run: build
+	valgrind ./lox
+
+build: *.cpp *.h
+	g++ -o lox *.cpp
 
 clean:
 	rm lox
